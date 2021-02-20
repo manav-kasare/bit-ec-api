@@ -1,7 +1,17 @@
 const mongoose = require("mongoose");
 
-const transactionSchema = mongoose.Schema({}, { timestamps: true });
+const transactionSchema = mongoose.Schema(
+  {
+    userId: { type: String },
+    numberOfBitcoins: { type: Number },
+    atPrice: { type: Number },
+    type: { type: String },
+    status: { type: String },
+    messages: [mongoose.Schema.Types.ObjectId],
+  },
+  { timestamps: true }
+);
 
-const Transaction = mongoose.model("User", transactionSchema);
+const Transaction = mongoose.model("Transaction", transactionSchema);
 
 module.exports = Transaction;

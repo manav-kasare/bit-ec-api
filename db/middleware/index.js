@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User.model");
+const User = require("../models/userModel");
 
 const createToken = async (_id) => {
   const token = jwt.sign(_id.toString(), process.env.JWT_SECRET);

@@ -4,7 +4,10 @@ const userSchema = mongoose.Schema(
   {
     phoneNumber: { unique: true, type: String, trim: true, required: true },
     name: { type: String, required: true },
-    bitcoinsBought: { type: String },
+    bitcoinsBought: { type: Number },
+    lastPrice: { type: Number },
+    transactions: [mongoose.Schema.Types.ObjectId],
+    notificationId: { type: String },
   },
   { timestamps: true }
 );
