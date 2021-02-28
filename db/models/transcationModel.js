@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const transactionSchema = mongoose.Schema(
   {
     userId: { type: String },
-    numberOfBitcoins: { type: Number },
+    amount: { type: Number },
     atPrice: { type: Number },
     type: { type: String },
     status: { type: String },

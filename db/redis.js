@@ -3,14 +3,14 @@ const redisClient = redis.createClient();
 const circularJson = require("circular-json");
 
 const setUserRedis = (id, value) => {
-  redisClient.set(`user:${id}`, circularJson.stringify(value));
+  redisClient.set(`user:${id}`, value);
 };
 
 const getUserRedis = async (id) => {
   let user;
   const promise = new Promise((resolve) => {
     redisClient.get(`user:${id}`, (err, res) => {
-      user = circularJson.parse(res);
+      user = res;
       resolve();
     });
   });
